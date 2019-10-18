@@ -1,0 +1,176 @@
+/* light green: #76d56f 
+   medium green: #55c57a
+   Dark green: #28b485
+*/
+
+/* Declaring a universal selector for the
+  whole page
+*/
+
+html{
+    font-size: 10px;
+}
+@media only screen and (max-width: 600px){
+    html{
+    font-size: 6px;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    padding: 5px;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: #777;
+}
+
+.header {
+    height: 95vh;
+    background-size: cover;
+    background-image: linear-gradient(to bottom, #76d56fe8,#28b485e8), url("./img/first.jpg");
+    background-position: top;
+    clip-path: polygon(0 0, 100% 0, 110% 80vh, 0 100%);
+    position: relative;
+}
+
+.logo-box {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+}
+
+.logo {
+    height: 7rem;
+    color: white;
+    font-style: italic;
+    letter-spacing: .3rem;
+    font-size: 2.2rem;
+}
+
+.text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.header-primary {
+    color: #ffffff;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+}
+
+.header-primary-main {
+    display: block;
+    letter-spacing: 3.9rem;
+    font-weight: 400;
+    font-size: 5.4rem;
+    animation: moveLeft;
+    animation-duration: 3s;
+    animation-timing-function: ease-out;
+}
+
+.header-primary-sub {
+    display: block;
+    font-weight: 400;
+    font-size: 1.5rem;
+    letter-spacing: 0.2rem;
+    animation: moveRight 3s ease-out;
+    backface-visibility: hidden;
+
+}
+
+@keyframes moveLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+
+    80% {
+        transform: translateX(4rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: 0rem;
+    }
+}
+
+@keyframes moveRight {
+    0% {
+        opacity: 0;
+        transform: translateX(20rem);
+    }
+
+    80% {
+        transform: translateX(-4rem);
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes moveButton {
+    0% {
+        opacity: 0;
+        transform: translateY(20rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: 0px;
+    }
+}
+
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    background: white;
+    display: inline-block;
+    padding: 1rem 4rem;
+    transform: all .2s;
+    animation: moveButton 2s;
+    position: relative;
+
+}
+
+.btn:hover {
+    transform: translateY(-.3rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.7);
+}
+
+.btn:active {
+    transform: translateX(-.1rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.7);
+
+}
+
+.btn-white {
+    color: #777;
+    border-radius: 5rem;
+}
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    z-index: -1;
+}
+
+.btn-white::after {
+    color: red;
+}
+
+.btn:hover::after {
+    opacity: 0;
+    transform: scale(2);
+}
